@@ -20,6 +20,9 @@ const App: React.FC = () => {
     <main>
       <header>Remember</header>
       <Input input={input} setInput={setInput} handleAdd={handleAdd} />
+      {lists.map((list) => {
+        return <li key={list.id}>{list.input}</li>;
+      })}
     </main>
   );
 };

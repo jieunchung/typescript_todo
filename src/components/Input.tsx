@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./styles.css";
 
 interface Props {
@@ -8,10 +8,17 @@ interface Props {
 }
 
 const Input: React.FC<Props> = (props: Props) => {
+  const inputRef = useRef<HTMLInputElement>(null);
   return (
     <section>
-      <form onSubmit={props.handleAdd}>
+      <form
+        onSubmit={(event) => {
+          props.handleAdd(event);
+          inputRef.current?.blur();
+        }}
+      >
         <input
+          ref={inputRef}
           type="text"
           onChange={(event) => {
             props.setInput(event.target.value);

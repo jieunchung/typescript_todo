@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Input from "./components/Input";
+import List from "./components/List";
 import { Structure } from "./structure";
 
 const App: React.FC = () => {
@@ -20,9 +21,10 @@ const App: React.FC = () => {
     <main>
       <header>Remember</header>
       <Input input={input} setInput={setInput} handleAdd={handleAdd} />
-      {lists.map((list) => {
+      {/* {lists.map((list) => {
         return <li key={list.id}>{list.input}</li>;
-      })}
+      })} */}
+      <List lists={lists} setLists={setLists} />
     </main>
   );
 };

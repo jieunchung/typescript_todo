@@ -1,4 +1,35 @@
-.input__text:hover,
 .input__text:focus {
   outline: none;
+}
+
+.list {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(254, 255, 165) 0%,
+    rgb(255, 232, 182) 90%
+  );
+  padding: 1rem 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.list__date {
+  color: gray;
+  font-size: small;
+  text-align: center;
+  display: block !important;
+}
+
+.list__todo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5rem;
+  padding: 1rem 0 0;
+}
+
+.list__icons {
+  display: flex;
+  gap: 1rem;
 }

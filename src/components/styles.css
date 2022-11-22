@@ -1,0 +1,4 @@
+.input__text:hover,
+.input__text:focus {
+  outline: none;
+}

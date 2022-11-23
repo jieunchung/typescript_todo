@@ -29,6 +29,10 @@
   padding: 1rem 0 0;
 }
 
+.list__done {
+  text-decoration: line-through;
+}
+
 .list__icons {
   display: flex;
   gap: 1rem;

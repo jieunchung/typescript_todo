@@ -15,15 +15,10 @@ const App: React.FC = () => {
     setInput("");
   };
 
-  console.log(lists);
-
   return (
     <main>
       <header>Remember</header>
       <Input input={input} setInput={setInput} handleAdd={handleAdd} />
-      {/* {lists.map((list) => {
-        return <li key={list.id}>{list.input}</li>;
-      })} */}
       <List lists={lists} setLists={setLists} />
     </main>
   );

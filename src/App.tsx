@@ -13,7 +13,7 @@ const App: React.FC = () => {
   const handleAdd = (event: React.FormEvent) => {
     event.preventDefault();
 
-    input && setLists([...lists, { id: Date.now(), input, isComplete: false }]);
+    input && setLists([...lists, { id: Date.now(), input }]);
     setInput("");
   };
 

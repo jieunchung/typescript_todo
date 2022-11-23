@@ -29,6 +29,7 @@ const List: React.FC<Props> = (props: Props) => {
                   list={list}
                   lists={props.lists}
                   setLists={props.setLists}
+                  droppableId="active"
                 />
               );
             })}
@@ -53,6 +54,7 @@ const List: React.FC<Props> = (props: Props) => {
                   list={list}
                   lists={props.completed}
                   setLists={props.setCompleted}
+                  droppableId="completed"
                 />
               );
             })}

@@ -9,6 +9,7 @@ interface Props {
   lists: Structure[];
   list: Structure;
   setLists: React.Dispatch<React.SetStateAction<Structure[]>>;
+  droppableId: string;
 }
 
 const SingleList: React.FC<Props> = (props: Props) => {
@@ -32,16 +33,20 @@ const SingleList: React.FC<Props> = (props: Props) => {
     setEdit(false);
   };
 
-  const handleDelete = (id: number) => {
-    props.setLists(props.lists.filter((list) => id !== list.id));
-  };
-
-  const handleDone = (id: number) => {
+  const handleClickEdit = (
+    event: React.MouseEvent<SVGElement, MouseEvent>,
+    id: number
+  ) => {
     props.setLists(
       props.lists.map((list) =>
-        list.id === id ? { ...list, isComplete: !list.isComplete } : list
+        list.id === id ? { ...list, input: editList } : list
       )
     );
+    setEdit(false);
+  };
+
+  const handleDelete = (id: number) => {
+    props.setLists(props.lists.filter((list) => id !== list.id));
   };
 
   return (
@@ -66,26 +71,30 @@ const SingleList: React.FC<Props> = (props: Props) => {
                 ref={inputRef}
                 onChange={(event) => setEditList(event.target.value)}
               />
-            ) : props.list.isComplete ? (
-              <p className="list__done">{props.list.input}</p>
             ) : (
               <p className="list__input">{props.list.input}</p>
             )}
 
             <i className="list__icons">
-              <GrEdit
-                className="list__edit"
-                onClick={() => {
-                  !props.list.isComplete && setEdit(!edit);
-                }}
-              />
+              {props.droppableId === "active" &&
+                (!edit ? (
+                  <GrEdit
+                    className="list__edit"
+                    onClick={() => {
+                      setEdit(!edit);
+                    }}
+                  />
+                ) : (
+                  <GrCheckmark
+                    className="list__edit"
+                    onClick={(event) => {
+                      handleClickEdit(event, props.list.id);
+                    }}
+                  />
+                ))}
               <GrTrash
                 className="list__delete"
                 onClick={() => handleDelete(props.list.id)}
-              />
-              <GrCheckmark
-                className="list__save"
-                onClick={() => handleDone(props.list.id)}
               />
             </i>
           </div>

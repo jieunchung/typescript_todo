@@ -1,13 +1,37 @@
-main {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gamja Flower", cursive;
 }
 
 header {
   font-size: 7rem;
-  z-index: 1;
   margin: 1rem 0;
+}
+
+body {
+  background-image: url(./images/wood.png);
+  background-color: #986c54;
+}
+
+main {
+  width: 500px;
+  height: 650px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  border-radius: 20px;
+  box-shadow: 20px 20px 50px #00000070;
+  background-color: #eeefe9;
+  background-image: url(./images/natural-paper.png);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+}
+
+main::-webkit-scrollbar {
+  width: 0px;
 }

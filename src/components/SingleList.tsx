@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Draggable } from "react-beautiful-dnd";
-import { GrEdit, GrTrash, GrCheckmark } from "react-icons/gr";
+import { GrEdit, GrTrash, GrCheckmark, GrSave } from "react-icons/gr";
 import { Structure } from "../structure";
 import "./styles.css";
 
@@ -49,11 +49,19 @@ const SingleList: React.FC<Props> = (props: Props) => {
     props.setLists(props.lists.filter((list) => id !== list.id));
   };
 
+  const handleComplete = (id: number) => {
+    props.setLists(
+      props.lists.map((list) =>
+        list.id === id ? { ...list, isComplete: !list.isComplete } : list
+      )
+    );
+  };
+
   return (
     <Draggable draggableId={props.list.id.toString()} index={props.index}>
       {(provided) => (
         <form
-          className="list"
+          className="form"
           onSubmit={(event) => {
             handleEdit(event, props.list.id);
           }}
@@ -62,7 +70,7 @@ const SingleList: React.FC<Props> = (props: Props) => {
           ref={provided.innerRef}
         >
           <time className="list__date">
-            Created on: {new Date(props.list.id).toLocaleString()}
+            Created: {new Date(props.list.id).toLocaleString()}
           </time>
           <div className="list__todo">
             {edit ? (
@@ -70,9 +78,14 @@ const SingleList: React.FC<Props> = (props: Props) => {
                 value={editList}
                 ref={inputRef}
                 onChange={(event) => setEditList(event.target.value)}
+                className="list__input"
               />
             ) : (
-              <p className="list__input">{props.list.input}</p>
+              <li
+                className={props.list.isComplete ? "list__done" : "list__input"}
+              >
+                {props.list.input}
+              </li>
             )}
 
             <i className="list__icons">
@@ -85,7 +98,7 @@ const SingleList: React.FC<Props> = (props: Props) => {
                     }}
                   />
                 ) : (
-                  <GrCheckmark
+                  <GrSave
                     className="list__edit"
                     onClick={(event) => {
                       handleClickEdit(event, props.list.id);
@@ -96,6 +109,7 @@ const SingleList: React.FC<Props> = (props: Props) => {
                 className="list__delete"
                 onClick={() => handleDelete(props.list.id)}
               />
+              <GrCheckmark onClick={() => handleComplete(props.list.id)} />
             </i>
           </div>
         </form>

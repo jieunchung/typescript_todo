@@ -23,11 +23,10 @@ const Input: React.FC<Props> = (props: Props) => {
           onChange={(event) => {
             props.setInput(event.target.value);
           }}
-          placeholder="Type something..."
+          placeholder="Add to your todo list..."
           className="input__text"
           value={props.input}
         />
-        <input type="submit" value="Add" className="input__submit" />
       </form>
     </section>
   );

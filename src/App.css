@@ -35,3 +35,25 @@ main {
 main::-webkit-scrollbar {
   width: 0px;
 }
+
+.lists__filter {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  width: 100%;
+  height: 100%;
+}
+
+.lists__filter_button {
+  font-size: 1.1rem;
+  margin: 1rem 1rem 0.5rem;
+  border: none;
+  border-bottom: 1px dotted;
+  display: flex;
+  align-items: center;
+}
+
+.lists__filter_button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}

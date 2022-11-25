@@ -4,6 +4,7 @@ import Input from "./components/Input";
 import List from "./components/List";
 import { Structure } from "./structure";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
+import { BsEraserFill } from "react-icons/bs";
 
 const App: React.FC = () => {
   const [input, setInput] = useState<string>("");
@@ -32,12 +33,26 @@ const App: React.FC = () => {
     setLists(newLists);
   };
 
+  const clearCompleted = () => {
+    setLists(
+      lists.filter((list) => {
+        return !list.isComplete;
+      })
+    );
+  };
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <main>
         <header>todo</header>
         <Input input={input} setInput={setInput} handleAdd={handleAdd} />
         <List lists={lists} setLists={setLists} />
+        <section className="lists__filter">
+          <button className="lists__filter_button" onClick={clearCompleted}>
+            erase all completed tasks&nbsp;
+            <BsEraserFill />
+          </button>
+        </section>
       </main>
     </DragDropContext>
   );

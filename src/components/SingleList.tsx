@@ -94,7 +94,7 @@ const SingleList: React.FC<Props> = (props: Props) => {
                   <GrEdit
                     className="list__edit"
                     onClick={() => {
-                      setEdit(!edit);
+                      !props.list.isComplete && setEdit(!edit);
                     }}
                   />
                 ) : (

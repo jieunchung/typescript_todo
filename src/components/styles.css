@@ -63,3 +63,43 @@
   justify-content: end;
   gap: 1rem;
 }
+
+@media only screen and (max-width: 550px) {
+  .input__text {
+    width: 330px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .input__text {
+    font-size: 1.1rem;
+    width: 300px;
+  }
+  .list__date {
+    font-size: 0.85rem;
+  }
+  .list__input {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+  .list__done {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+  .list__icons {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .input__text {
+    font-size: 1.05rem;
+    width: 250px;
+  }
+  .list__input {
+    font-size: 1.05rem;
+  }
+  .list__done {
+    font-size: 1.05rem;
+  }
+}

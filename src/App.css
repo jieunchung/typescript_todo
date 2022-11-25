@@ -29,7 +29,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 main::-webkit-scrollbar {
@@ -51,9 +52,48 @@ main::-webkit-scrollbar {
   border-bottom: 1px dotted;
   display: flex;
   align-items: center;
+  color: #000;
+  background-color: transparent;
 }
 
 .lists__filter_button:hover {
   cursor: pointer;
   transform: scale(1.05);
+}
+
+@media only screen and (max-width: 550px) {
+  header {
+    font-size: 5.5rem;
+  }
+  main {
+    width: 350px;
+    height: 550px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  header {
+    font-size: 5rem;
+  }
+  main {
+    width: 320px;
+  }
+  .lists__filter_button {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  header {
+    font-size: 4.5rem;
+  }
+  main {
+    width: 270px;
+    height: 500px;
+    margin-top: 4rem;
+  }
+  .lists__filter_button {
+    font-size: 0.95rem;
+  }
 }

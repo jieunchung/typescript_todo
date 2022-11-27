@@ -14,7 +14,7 @@ const App: React.FC = () => {
   });
 
   useEffect(() => {
-    lists.length && localStorage.setItem("lists", JSON.stringify(lists));
+    localStorage.setItem("lists", JSON.stringify(lists));
   }, [lists]);
 
   const handleAdd = (event: React.FormEvent) => {

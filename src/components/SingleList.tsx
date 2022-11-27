@@ -1,14 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { GrEdit, GrTrash, GrCheckmark, GrSave } from "react-icons/gr";
-import { Structure } from "../structure";
+import { listType } from "../listType";
 import "./styles.css";
 
 interface Props {
   index: number;
-  lists: Structure[];
-  list: Structure;
-  setLists: React.Dispatch<React.SetStateAction<Structure[]>>;
+  lists: listType[];
+  list: listType;
+  setLists: React.Dispatch<React.SetStateAction<listType[]>>;
   droppableId: string;
 }
 

@@ -1,11 +1,11 @@
 import React from "react";
 import { Droppable } from "react-beautiful-dnd";
-import { Structure } from "../structure";
+import { listType } from "../listType";
 import SingleList from "./SingleList";
 
 interface Props {
-  lists: Structure[];
-  setLists: React.Dispatch<React.SetStateAction<Structure[]>>;
+  lists: listType[];
+  setLists: React.Dispatch<React.SetStateAction<listType[]>>;
 }
 
 const List: React.FC<Props> = (props: Props) => {
